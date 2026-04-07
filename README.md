@@ -4,7 +4,7 @@ Aplikasi web sederhana berbasis PHP dan MySQL untuk mengelola data user (Create,
 
 ---
 
-## 📁 Struktur Folder
+## Struktur Folder
 
 ```
 project/
@@ -15,6 +15,8 @@ project/
 │   │   └── style.css     # Tampilan / styling halaman
 │   └── js/
 │       └── script.js     # Fungsi JavaScript (konfirmasi, show password)
+├── database/
+│   └── tugasCRUDS.sql    # File Database
 ├── index.php             # Halaman utama: form tambah & tabel data
 ├── create.php            # Proses tambah data baru
 ├── edit.php              # Halaman form edit data
@@ -25,7 +27,7 @@ project/
 
 ---
 
-## ⚙️ Prasyarat
+## Prasyarat
 
 - PHP >= 7.4
 - MySQL / MariaDB
@@ -33,7 +35,7 @@ project/
 
 ---
 
-## 🗄️ Setup Database
+## Setup Database
 
 1. Buat database baru di MySQL:
 
@@ -54,13 +56,26 @@ CREATE TABLE users (
 );
 ```
 
+3. Import file SQL yang sudah tersedia:
+
+**Via phpMyAdmin:**
+
+1. Buka phpMyAdmin → klik **Import**
+2. Pilih file `database/tugasCRUDS.sql` → klik **Go**
+
+**Via terminal:**
+
+```bash
+mysql -u root -p < database/tugasCRUDS.sql
+```
+
 ---
 
-## 🚀 Cara Menjalankan
+## Cara Menjalankan
 
-1. Clone atau salin folder `project/` ke direktori web server:
-   - XAMPP: `C:/xampp/htdocs/project/`
-   - Laragon: `C:/laragon/www/project/`
+1. Clone repository ke direktori web server:
+   - XAMPP: `C:/xampp/htdocs/tugasCRUDS/`
+   - Laragon: `C:/laragon/www/tugasCRUDS/`
 
 2. Sesuaikan konfigurasi database di `config/koneksi.php`:
 
@@ -68,31 +83,31 @@ CREATE TABLE users (
 $host     = "localhost";
 $user     = "root";
 $pass     = "";          // sesuaikan password MySQL
-$database = "tugasCRUD";
+$database = "tugasCRUDS";
 ```
 
 3. Jalankan web server, lalu buka browser:
 
 ```
-http://localhost/project/
+http://localhost/tugasCRUDS/
 ```
 
 ---
 
-## 🔧 Fitur
+## Fitur
 
-| Fitur         | File             | Keterangan                             |
-|---------------|------------------|----------------------------------------|
-| Lihat data    | `index.php`      | Menampilkan semua data user dalam tabel |
-| Tambah data   | `create.php`     | Menyimpan data user baru ke database   |
-| Cari data     | `index.php`      | Pencarian berdasarkan nama atau email  |
-| Edit data     | `edit.php`       | Menampilkan form edit data user        |
-| Update data   | `update.php`     | Menyimpan perubahan data ke database   |
-| Hapus data    | `hapus.php`      | Menghapus data user dari database      |
+| Fitur       | File         | Keterangan                              |
+| ----------- | ------------ | --------------------------------------- |
+| Lihat data  | `index.php`  | Menampilkan semua data user dalam tabel |
+| Tambah data | `create.php` | Menyimpan data user baru ke database    |
+| Cari data   | `index.php`  | Pencarian berdasarkan nama atau email   |
+| Edit data   | `edit.php`   | Menampilkan form edit data user         |
+| Update data | `update.php` | Menyimpan perubahan data ke database    |
+| Hapus data  | `hapus.php`  | Menghapus data user dari database       |
 
 ---
 
-## ⚠️ Catatan
+## Catatan
 
 - Aplikasi ini dibuat untuk keperluan **belajar** dan belum menggunakan fitur keamanan tingkat produksi.
 - Password saat ini disimpan dalam bentuk **plain text**. Untuk keamanan lebih, gunakan `password_hash()` saat menyimpan dan `password_verify()` saat memvalidasi.
