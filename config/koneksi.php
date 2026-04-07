@@ -1,9 +1,9 @@
 <?php
 
-$host     = "localhost";
-$user     = "root";
-$pass     = "";
-$database = "tugasCRUD";
+$host = "localhost";
+$user = "root";
+$pass = "";
+$database = "tugasCRUDS";
 
 $koneksi = mysqli_connect($host, $user, $pass, $database);
 
